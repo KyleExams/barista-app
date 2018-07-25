@@ -1,0 +1,11 @@
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.0\BaristaSample.deps.json
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.0\BaristaSample.runtimeconfig.json
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.0\BaristaSample.runtimeconfig.dev.json
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.0\BaristaSample.dll
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.0\BaristaSample.pdb
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.0\BaristaSample.csprojAssemblyReference.cache
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.0\BaristaSample.csproj.CoreCompileInputs.cache
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.0\BaristaSample.AssemblyInfoInputs.cache
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.0\BaristaSample.AssemblyInfo.cs
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.0\BaristaSample.dll
+c:\users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.0\BaristaSample.pdb

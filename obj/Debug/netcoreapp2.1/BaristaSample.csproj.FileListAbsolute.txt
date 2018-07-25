@@ -1,0 +1,13 @@
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.1\BaristaSample.deps.json
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.1\BaristaSample.runtimeconfig.json
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.1\BaristaSample.runtimeconfig.dev.json
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.1\BaristaSample.dll
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.1\BaristaSample.csproj.CoreCompileInputs.cache
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.1\BaristaSample.AssemblyInfoInputs.cache
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.1\BaristaSample.AssemblyInfo.cs
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.1\BaristaSample.RazorAssemblyInfo.cache
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.1\BaristaSample.RazorAssemblyInfo.cs
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.1\BaristaSample.RazorTargetAssemblyInfo.cache
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\bin\Debug\netcoreapp2.1\BaristaSample.pdb
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.1\BaristaSample.dll
+C:\Users\kyleu\source\repos\BaristaSample\BaristaSample\obj\Debug\netcoreapp2.1\BaristaSample.pdb
