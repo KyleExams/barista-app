@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BaristaSample
 {
-    [Route("barista")]
+    [Route("api/barista")]
     public class BaristaController : Controller
     {
         private readonly IBaristaService _baristaService;
@@ -44,25 +44,19 @@ namespace BaristaSample
             }
         }
 
-        [Route("addpantry/{name}")]
+        [Route("addpantry")]
         [HttpPost]
-        public IActionResult AddPantry(string name)
+        public IActionResult AddPantry([FromBody]AddPantryRequest request)
         {
-            _baristaService.AddPantry(name);
+            var result = _baristaService.AddPantry(request.name);
 
-            return Ok();
+            return Ok(result);
         }
 
-        //// PUT api/<controller>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+    }
 
-        //// DELETE api/<controller>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+    public class AddPantryRequest
+    {
+        public string name { get; set; }
     }
 }

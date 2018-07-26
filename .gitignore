@@ -6,6 +6,8 @@
 /out-tsc
 /bin
 /obj
+/obj/Debug/netcoreapp2.1
+/wwwroot
 
 # dependencies
 /node_modules
@@ -42,4 +44,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/.vs/BaristaSample/v15
+/BaristaSample.csproj.user
+/.vs

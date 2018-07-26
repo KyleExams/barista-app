@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace BaristaSample
                    !Path.HasExtension(context.Request.Path.Value) &&
                    !context.Request.Path.Value.StartsWith("/api/"))
                 {
-                    context.Request.Path = "/index.html";
+                    context.Request.Path = "/src/index.html";
                     await next();
                 }
             });
