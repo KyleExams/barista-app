@@ -1,0 +1,14 @@
+.pantry-list-item {
+  background-color: rgba(230,167,86,.9);
+  cursor: pointer;
+  margin: 20px;
+}
+
+.pantry-list-container {
+  overflow-y: auto;
+  max-height: 40vw;
+}
+
+#btnAnotherPantry {
+  margin-top: 20px;
+}

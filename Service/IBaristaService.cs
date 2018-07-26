@@ -10,5 +10,7 @@ namespace BaristaSample
         int AddPantry(string name);
         IEnumerable<Pantry> GetPantries();
         Pantry GetPantry(int id);
-    }
+		void AddOrder(OrderHistory order);
+		IEnumerable<OrderHistory> GetOrderHistory();
+	}
 }

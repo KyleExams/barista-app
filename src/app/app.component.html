@@ -1,31 +1,6 @@
-<div>
-  <h1>Welcome to Barista App!</h1>
-  <div *ngIf="pantries?.length <= 0">
-    <div>No pantries available TODO: Insert image here</div>
-    <button (click)="newPantryModal.open()">ADD PANTRY</button>
+<header class="masthead d-flex">
+  <div class="container text-center my-auto">
+    <router-outlet></router-outlet>
   </div>
-  <div *ngIf="pantries?.length > 0">
-    <div>Select Pantry:</div>
-    <ul>
-      <li *ngFor="let pantry of pantries">{{pantry.name}}</li>
-    </ul>
-    <button (click)="newPantryModal.open()">ADD ANOTHER PANTRY?</button>
-  </div>
-</div>
-
-<ngx-smart-modal #newPantryModal identifier="newPantryModal" (onOpen)="InitializeModal(newPantryForm)">
-  <div>
-    <div style="border-bottom: 1px solid #eceeef">
-      <h2>Add New Pantry</h2>
-    </div>
-    <form #newPantryForm="ngForm" (ngSubmit)="AddPantry(newPantryForm)">
-      <div class="form-group" style="padding: 10px;">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" pattern="[a-zA-Z0-9-]+" required [(ngModel)]="newPantryForm.name" />
-      </div>
-      <div style="border-top: 1px solid #eceeef; padding-top: 10px;">
-        <button type="submit" class="btn btn-success" [disabled]="!newPantryForm.valid">SAVE</button>
-      </div>
-    </form>
-  </div>
-</ngx-smart-modal>
+  <div class="overlay"></div>
+</header>

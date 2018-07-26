@@ -1,0 +1,36 @@
+<h1 class="mb-1 white-text">Barista App</h1>
+<div *ngIf="pantries?.length <= 0">
+  <h3 class="mb-5 white-text">
+    <em>No pantries available yet, click the button below to start.</em>
+  </h3>
+  <a class="btn btn-primary btn-xl js-scroll-trigger" (click)="newPantryModal.open()">Add Pantry</a>
+</div>
+<div *ngIf="pantries?.length > 0">
+  <h3 class="mb-5 white-text">
+    <em>Click on a pantry from the list below.</em>
+  </h3>
+  <div>
+    <ul class="list-group pantry-list-container">
+      <li class="list-group-item pantry-list-item" *ngFor="let pantry of pantries" (click)="SelectPantry(pantry.id)"><h3>Grab some coffee from "<span style="color: white;">{{pantry.name}}</span>" pantry..  👉 ☕</h3></li>
+    </ul>
+    <a class="btn btn-primary btn-xl js-scroll-trigger" id="btnAnotherPantry" (click)="newPantryModal.open()">Add Another Pantry?</a>
+  </div>
+</div>
+
+<ngx-smart-modal #newPantryModal identifier="newPantryModal" (onOpen)="InitializeModal(newPantryForm)">
+  <div>
+    <div class="modal-header">
+      <h2>Add New Pantry</h2>
+    </div>
+    <form #newPantryForm="ngForm" (ngSubmit)="AddPantry(newPantryForm)">
+      <div class="form-group modal-body">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" pattern="[a-zA-Z0-9- -]+" maxlength="15" required [(ngModel)]="newPantryForm.name" />
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success" [disabled]="!newPantryForm.valid">SAVE</button>
+        <button type="button" class="btn btn-danger" (click)="newPantryModal.close()">CANCEL</button>
+      </div>
+    </form>
+  </div>
+</ngx-smart-modal>

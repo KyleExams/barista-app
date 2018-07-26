@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\app\models.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="BaristaSample.sln" />
   </ItemGroup>
 
@@ -14,6 +18,14 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\assets\vendor\simple-line-icons\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\models.ts" />
   </ItemGroup>
 
 </Project>
