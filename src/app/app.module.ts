@@ -5,22 +5,32 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PantryComponent } from './pantry/pantry.component';
+import { PantryOrdersComponent } from './pantry/pantry-orders.component';
+import { RemainingStocksReportComponent } from './reports/remaining-stocks-report.component';
+
+import { UtilityService } from './utility-service';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+	{ path: '', redirectTo: 'home', pathMatch: 'full' },
+	{ path: 'home', component: HomeComponent },
 	{ path: 'pantry/:id', component: PantryComponent },
 ];
 
 @NgModule({
 	declarations: [
-    AppComponent,
-    HomeComponent,
-	  PantryComponent
+		AppComponent,
+		HomeComponent,
+		PantryComponent,
+		PantryOrdersComponent,
+		RemainingStocksReportComponent
 	],
 	imports: [
 		BrowserModule,
@@ -29,12 +39,14 @@ const appRoutes: Routes = [
 		HttpClientModule,
 		BrowserAnimationsModule,
 		NgxSmartModalModule.forRoot(),
+		NgxPaginationModule,
+		NgxChartsModule,
 		RouterModule.forRoot(
 			appRoutes,
 			//{ enableTracing: true } // <-- debugging purposes only
 		)
 	],
-	providers: [],
-  bootstrap: [AppComponent]
+	providers: [UtilityService],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

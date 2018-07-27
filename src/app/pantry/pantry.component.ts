@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 
+import { PantryOrdersComponent } from './pantry-orders.component';
 import { Pantry, CoffeeType } from '../models';
+import { UtilityService } from '../utility-service';
 
 @Component({
 	selector: 'app-pantry',
@@ -12,6 +14,8 @@ import { Pantry, CoffeeType } from '../models';
 	styleUrls: ['./pantry.component.css']
 })
 export class PantryComponent implements OnInit {
+	@ViewChild(PantryOrdersComponent) pantryOrders: PantryOrdersComponent;
+
 	pantry: Pantry;
 	coffeeName: string;
 	errorMessage: string;
@@ -20,7 +24,8 @@ export class PantryComponent implements OnInit {
 
 	constructor(private route: ActivatedRoute,
 		private http: HttpClient,
-		private ngxSmartModalService: NgxSmartModalService	) { }
+		private ngxSmartModalService: NgxSmartModalService,
+		private utils: UtilityService) { }
 
 	ngOnInit() {
 		console.log("Pantry Component Init");
@@ -28,21 +33,21 @@ export class PantryComponent implements OnInit {
 	}
 
 	public OrderDoubleAmericano(): void {
-		this.coffeeName = "Double Americano";
+		this.coffeeName = this.utils.GetCoffeeName(CoffeeType.DoubleAmericano);
 		this.isBusy = true;
 		this.ngxSmartModalService.getModal('orderProgressModal').open();
 		this.OrderCoffee(CoffeeType.DoubleAmericano);
 	}
 
 	public OrderSweetLatte(): void {
-		this.coffeeName = "Sweet Latte";
+		this.coffeeName = this.utils.GetCoffeeName(CoffeeType.SweetLatte);
 		this.isBusy = true;
 		this.ngxSmartModalService.getModal('orderProgressModal').open();
 		this.OrderCoffee(CoffeeType.SweetLatte);
 	}
 
 	public OrderFlatWhite(): void {
-		this.coffeeName = "Flat White";
+		this.coffeeName = this.utils.GetCoffeeName(CoffeeType.FlatWhite);
 		this.isBusy = true;
 		this.ngxSmartModalService.getModal('orderProgressModal').open();
 		this.OrderCoffee(CoffeeType.FlatWhite);
@@ -67,7 +72,8 @@ export class PantryComponent implements OnInit {
 				setTimeout(() => {
 					this.isBusy = false;
 					setTimeout(() => {
-						this.CloseProgressModal()
+						this.CloseProgressModal();
+						this.pantryOrders.GetOrderHistory(this.pantry.id);
 					}, 2000)
 				}, 5000);
 			},

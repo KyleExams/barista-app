@@ -1,0 +1,37 @@
+<a class="btn btn-primary btn-xl js-scroll-trigger" (click)="ShowRemainingStocksModal()">View Remaining Stocks</a>
+
+<ngx-smart-modal #remainingStocksModal identifier="remainingStocksModal" [customClass]="'remaining-stocks-modal'">
+	<div>
+		<div class="modal-header">
+			<h2>Remaining Stocks</h2>
+		</div>
+		<div id="divChart">
+			<div *ngIf="!dataHasLoaded" class="div-loading">
+				<i class="fas fa-spinner plain-icon i-loading"></i>
+			</div>
+			<ngx-charts-bar-horizontal-2d *ngIf="dataHasLoaded"
+										  class="chart-container chart-custom"
+										  [scheme]="colorScheme"
+										  [schemeType]="schemeType"
+										  [results]="data"
+										  [animations]="animations"
+										  [gradient]="gradient"
+										  [tooltipDisabled]="tooltipDisabled"
+										  [xAxis]="showXAxis"
+										  [yAxis]="showYAxis"
+										  [legend]="showLegend"
+										  [legendTitle]="legendTitle"
+										  [showXAxisLabel]="showXAxisLabel"
+										  [showYAxisLabel]="showYAxisLabel"
+										  [xAxisLabel]="xAxisLabel"
+										  [yAxisLabel]="yAxisLabel"
+										  [showGridLines]="showGridLines"
+										  [roundDomains]="roundDomains"
+										  [roundEdges]="roundEdges">
+			</ngx-charts-bar-horizontal-2d>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-info" (click)="remainingStocksModal.close()">CLOSE</button>
+		</div>
+	</div>
+</ngx-smart-modal>

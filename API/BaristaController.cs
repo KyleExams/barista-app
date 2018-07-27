@@ -53,11 +53,11 @@ namespace BaristaSample
 			return Ok(result);
 		}
 
-		[Route("getorderhistory")]
+		[Route("getorderhistory/{pantryId}")]
 		[HttpGet]
-		public IActionResult GetOrders()
+		public IActionResult GetOrders(int pantryId)
 		{
-			var result = _baristaService.GetOrderHistory();
+			var result = _baristaService.GetOrderHistory(pantryId);
 
 			return Ok(result);
 		}
@@ -83,6 +83,15 @@ namespace BaristaSample
 			{
 				return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
 			}
+		}
+
+		[Route("getremainingstocks/{pantryId}")]
+		[HttpGet]
+		public IActionResult GetRemainingStocksReportData(int pantryId)
+		{
+			var result = _baristaService.GetRemainingStocksReportData(pantryId);
+
+			return Ok(result);
 		}
 	}
 }

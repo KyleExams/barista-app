@@ -22,6 +22,7 @@
 .modal-footer {
 	border-top: 1px solid #eceeef;
 	padding-top: 10px;
+	width: 100%;
 }
 
 .plain-icon {
@@ -40,4 +41,33 @@
 
 .white-text {
 	color: white;
+}
+
+.brown-text {
+	color: rgb(136,117,103)
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 4px solid white;
+	margin: 2em 0;
+	padding: 0;
+}
+
+.remaining-stocks-modal {
+	max-height: 50vw !important;
+	max-width: 60vw !important;
+}
+
+.div-loading {
+	display: table;
+	height: 20vw;
+	width: 55vw;
+}
+
+.i-loading {
+	display: table-cell !important;
+	vertical-align: middle;
 }

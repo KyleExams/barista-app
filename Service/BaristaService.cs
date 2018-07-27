@@ -26,7 +26,7 @@ namespace BaristaSample
 			{
 				Id = pantries.Count + 1,
 				Name = name,
-				Inventory = new Inventory(45, 45, 45) // Assumption that pantries start with 3 bags with 15 units inside each.
+				Inventory = new Inventory(3, 3, 3) // Assumption that pantries start with 3 bags with 15 units inside each.
 			};
 
 			pantries.Add(newPantry);
@@ -91,9 +91,71 @@ namespace BaristaSample
 			orders.Add(order);
 		}
 
-		public IEnumerable<OrderHistory> GetOrderHistory()
+		public IEnumerable<OrderHistory> GetOrderHistory(int pantryId)
 		{
-			return orders;
+			var pantry = GetPantry(pantryId);
+			return orders.Where(o => o.PantryId == pantry.Id).OrderByDescending(o => o.OrderDate);
+		}
+
+		public IEnumerable<ReportGroup> GetRemainingStocksReportData(int pantryId)
+		{
+			var pantry = GetPantry(pantryId);
+			var reportItems = new ReportGroup[]
+			{
+				new ReportGroup
+				{
+					Name = "Coffee Bags",
+					Series = new ReportItem[]
+					{
+						new ReportItem
+						{
+							Name = "Supplied",
+							Value = pantry.Inventory.CoffeeBeansBags
+						},
+						new ReportItem
+						{
+							Name = "Remaining",
+							Value = Math.Round(pantry.Inventory.CoffeeBeansUnits / 15M, 2)
+						}
+					}
+				},
+				new ReportGroup
+				{
+					Name = "Sugar Packs",
+					Series = new ReportItem[]
+					{
+						new ReportItem
+						{
+							Name = "Supplied",
+							Value = pantry.Inventory.SugarPacks
+						},
+						new ReportItem
+						{
+							Name = "Remaining",
+							Value = Math.Round(pantry.Inventory.SugarUnits / 15M, 2)
+						}
+					}
+				},
+				new ReportGroup
+				{
+					Name = "Milk Cartons",
+					Series = new ReportItem[]
+					{
+						new ReportItem
+						{
+							Name = "Supplied",
+							Value = pantry.Inventory.MilkCartons
+						},
+						new ReportItem
+						{
+							Name = "Remaining",
+							Value = Math.Round(pantry.Inventory.MilkUnits / 15M, 2)
+						}
+					}
+				}
+			};
+
+			return reportItems;
 		}
 	}
 }
