@@ -4,21 +4,25 @@
 This is just a sample application for demonstration purposes or a starting point on how to implement the technologies stated below.
 
 Technologies (excluding dependencies):
-	1.  .NET core 2.1
-	2. Angular4
-	3. Ngx-charts
-	4. Ngx-pagination
-	5. Ngx-smart-modal
-	6. Ngx-toastr
+<ol>
+	<li>.NET core 2.1</li>
+	<li>Angular4</li>
+	<li>ngx-charts</li>
+	<li>ngx-pagination</li>
+	<li>ngx-smart-modal</li>
+	<li>ngx-toastr</li>
+</ol>
 
 How to use:
-	1. Open solution in visual studio 2017
-	2. Get Nuget updates
-	3. Build solution
-	4. Install node.js on machine (if not already installed)
-	5. Install angular global in npm
-	6. Go to root of project
-	7. Run 'npm install'
-	8. Run 'ng build'
-	9. Run 'dotnet run'
-	10. Go to browser as per details on step #8
+<ol>
+	<li>Open solution in Visual Studio 2017</li>
+	<li>Get Nuget updates</li>
+	<li>Build solution</li>
+	<li>Install node.js on machine (if not already installed)</li>
+	<li>Install angular global in npm</li>
+	<li>Go to root of project</li>
+	<li>Run 'npm install'</li>
+	<li>Run 'ng build'</li>
+	<li>Run 'dotnet run'</li>
+	<li>Go to browser as per details on step #9</li>
+</ol>
