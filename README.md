@@ -1,9 +1,9 @@
 # barista-app
-Angular 4 &amp; .NET Core
+<b>Angular 4 &amp; .NET Core Sample App</b>
 
-This is just a sample application for demonstration purposes or starting point on how to implement the technologies used.
+This is just a sample application for demonstration purposes or a starting point on how to implement the technologies stated below.
 
-Technologies (excluding dependencies)
+Technologies (excluding dependencies):
 	1.  .NET core 2.1
 	2. Angular4
 	3. Ngx-charts
@@ -21,4 +21,4 @@ How to use:
 	7. Run 'npm install'
 	8. Run 'ng build'
 	9. Run 'dotnet run'
-Go to browser as per details on step #8
+	10. Go to browser as per details on step #8
