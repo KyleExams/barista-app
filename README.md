@@ -21,7 +21,8 @@ How to use:
 	<li>Install node.js on machine (if not already installed)</li>
 	<li>Install angular global in npm</li>
 	<li>Go to root of project</li>
-	<li>Run 'npm install'</li>
+	<li>Run 'npm install' (there might be warnings as this is currently not the latest version of Angular, just ignore them)</li>
+	<li>Run 'npm rebuild node-sass'</li>
 	<li>Run 'ng build'</li>
 	<li>Run 'dotnet run'</li>
 	<li>Go to browser as per details on step #9</li>
