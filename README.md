@@ -27,5 +27,5 @@ How to use:
 	<li>Run 'npm rebuild node-sass'</li>
 	<li>Run 'ng build'</li>
 	<li>Run 'dotnet run'</li>
-	<li>Go to browser as per details on step #9</li>
+	<li>Go to browser as per details on step #10</li>
 </ol>
