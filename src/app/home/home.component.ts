@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { map, tap } from 'rxjs/operators';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { ToastrService } from 'ngx-toastr';
 import * as _ from "lodash";
 
 import { Pantry } from '../models';
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
 
 	public constructor(private http: HttpClient,
 		private router: Router,
-		private ngxSmartModalService: NgxSmartModalService) { }
+		private ngxSmartModalService: NgxSmartModalService,
+		private toastr: ToastrService) { }
 
 	public ngOnInit(): void {
 		this.LoadPantries();
@@ -29,26 +31,22 @@ export class HomeComponent implements OnInit {
 
 	public InitializeModal(newPantryForm: NgForm): void {
 		newPantryForm.reset();
-		console.log('open modal');
 	}
 
 	public AddPantry(newPantryForm: NgForm): void {
-		console.log(newPantryForm.value);
 		this.http.post("api/barista/addpantry", newPantryForm.value, httpOptions)
 			.subscribe(
 			res => {
-				console.log(res);
 				this.LoadPantries();
 				this.ngxSmartModalService.getModal('newPantryModal').close();
 			},
 			err => {
-				console.log("Error occured");
+				this.toastr.error('Error', err.error);
 				this.ngxSmartModalService.getModal('newPantryModal').close();
 			});
 	}
 
 	public SelectPantry(id: number): void {
-		console.log(this.pantries.find(o => o.id == id));
 		this.router.navigateByUrl('/pantry/' + id);
 	}
 
@@ -57,10 +55,9 @@ export class HomeComponent implements OnInit {
 			.subscribe(
 			res => {
 				this.pantries = res;
-				console.log(this.pantries);
 			},
 			err => {
-				console.log("Error occured");
+				this.toastr.error('Error', err.error);
 			});
 	}
 

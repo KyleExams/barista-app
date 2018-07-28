@@ -56,7 +56,7 @@ hr {
 	padding: 0;
 }
 
-.remaining-stocks-modal {
+.reports-modal {
 	max-height: 50vw !important;
 	max-width: 60vw !important;
 }
@@ -70,4 +70,15 @@ hr {
 .i-loading {
 	display: table-cell !important;
 	vertical-align: middle;
+}
+
+#reportDivChart {
+	margin: 10px;
+	padding: 10px;
+	width: 55vw;
+	height: 30vw;
+}
+
+.report-chart-custom {
+	left: 0px;
 }

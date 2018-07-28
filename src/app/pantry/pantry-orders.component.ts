@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 import { OrderHistory } from '../models';
 import { UtilityService } from '../utility-service';
@@ -15,10 +16,10 @@ export class PantryOrdersComponent implements OnInit {
 
 	constructor(private route: ActivatedRoute,
 		private http: HttpClient,
-		private utils: UtilityService) { }
+		private utils: UtilityService,
+		private toastr: ToastrService) { }
 
 	ngOnInit() {
-		console.log("Pantry Orders Component Init");
 		this.route.params.subscribe(params => { this.GetOrderHistory(params['id']); });
 	}
 
@@ -27,10 +28,9 @@ export class PantryOrdersComponent implements OnInit {
 			.subscribe(
 			res => {
 				this.orderHistory = res;
-				console.log(this.orderHistory);
 			},
 			err => {
-				console.log("Error occured");
+				this.toastr.error('Error', err.error);
 			});
 	}
 }

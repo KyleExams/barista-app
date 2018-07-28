@@ -9,12 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PantryComponent } from './pantry/pantry.component';
 import { PantryOrdersComponent } from './pantry/pantry-orders.component';
 import { RemainingStocksReportComponent } from './reports/remaining-stocks-report.component';
+import { DrinksOrderedReportComponent } from './reports/drinks-ordered-report.component';
 
 import { UtilityService } from './utility-service';
 
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
 		HomeComponent,
 		PantryComponent,
 		PantryOrdersComponent,
-		RemainingStocksReportComponent
+		RemainingStocksReportComponent,
+		DrinksOrderedReportComponent
 	],
 	imports: [
 		BrowserModule,
@@ -41,6 +44,7 @@ const appRoutes: Routes = [
 		NgxSmartModalModule.forRoot(),
 		NgxPaginationModule,
 		NgxChartsModule,
+		ToastrModule.forRoot(),
 		RouterModule.forRoot(
 			appRoutes,
 			//{ enableTracing: true } // <-- debugging purposes only

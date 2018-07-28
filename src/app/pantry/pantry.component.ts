@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { ToastrService } from 'ngx-toastr';
 
 import { PantryOrdersComponent } from './pantry-orders.component';
 import { Pantry, CoffeeType } from '../models';
@@ -25,10 +26,10 @@ export class PantryComponent implements OnInit {
 	constructor(private route: ActivatedRoute,
 		private http: HttpClient,
 		private ngxSmartModalService: NgxSmartModalService,
-		private utils: UtilityService) { }
+		private utils: UtilityService,
+		private toastr: ToastrService) { }
 
 	ngOnInit() {
-		console.log("Pantry Component Init");
 		this.route.params.subscribe(params => { this.GetPantry(params['id']); });
 	}
 
@@ -58,10 +59,9 @@ export class PantryComponent implements OnInit {
 			.subscribe(
 			res => {
 				this.pantry = res;
-				console.log(this.pantry);
 			},
 			err => {
-				console.log("Error occured");
+				this.toastr.error('Error', err.error);
 			});
 	}
 

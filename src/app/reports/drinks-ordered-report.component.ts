@@ -4,20 +4,20 @@ import { HttpClient } from '@angular/common/http';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { ToastrService } from 'ngx-toastr';
 
-import { ReportGroup } from '../models';
+import { ReportItem } from '../models';
 
 @Component({
-	selector: 'remaining-stocks-report',
-	templateUrl: './remaining-stocks-report.component.html',
-	styleUrls: ['./remaining-stocks-report.component.css']
+	selector: 'drinks-ordered-report',
+	templateUrl: './drinks-ordered-report.component.html',
+	styleUrls: ['./drinks-ordered-report.component.css']
 })
-export class RemainingStocksReportComponent implements OnInit {
+export class DrinksOrderedReportComponent implements OnInit {
 	//chart styles
 	animations: boolean = true;
 	colorScheme = 'natural';
 	legendTitle = '';
 	gradient: boolean = false;
-	roundDomains: boolean = false;
+	roundDomains: boolean = true;
 	roundEdges: boolean = true;
 	schemeType = 'ordinal';
 	showXAxis: boolean = true;
@@ -25,15 +25,16 @@ export class RemainingStocksReportComponent implements OnInit {
 	showXAxisLabel: boolean = false;
 	showYAxisLabel: boolean = true;
 	showGridLines: boolean  = true;
-	showLegend: boolean = true;
+	showLegend: boolean = false;
 	tooltipDisabled: boolean = false;
 	xAxisLabel = '';
-	yAxisLabel = 'Stocks';
+	yAxisLabel = 'Drinks';
 
-	data: ReportGroup[] = [];
+	data: ReportItem[] = [];
 
 	id: any;
 	dataHasLoaded: boolean = false;
+	displayReport: boolean = false;
 
 	constructor(private route: ActivatedRoute,
 		private http: HttpClient,
@@ -44,20 +45,42 @@ export class RemainingStocksReportComponent implements OnInit {
 		this.route.params.subscribe(params => { this.id = params['id']; });
 	}
 
-	public ShowRemainingStocksModal() {
+	public ShowDrinksOrderedModal() {
 		this.data = [];
 		this.dataHasLoaded = false;
-		this.http.get<ReportGroup[]>("api/barista/getremainingstocks/" + this.id)
+		this.http.get<ReportItem[]>("api/barista/getdrinksordered/" + this.id)
 			.subscribe(
 			res => {
-				this.ngxSmartModalService.getModal('remainingStocksModal').open();
+				this.ngxSmartModalService.getModal('drinksOrderedModal').open();
 				setTimeout(() => {
 					this.data = res;
 					this.dataHasLoaded = true;
+					this.ToggleDisplayReportLink();
 				}, 1000);
 			},
 			err => {
 				this.toastr.error('Error', err.error);
 			});
+	}
+
+	public axisFormat = (val) => {
+		if (val % 1 === 0) {
+			return val.toLocaleString();
+		} else {
+			return '';
+		}
+	}
+
+	private ToggleDisplayReportLink(): void {
+		if (this.dataHasLoaded) {
+			this.data.forEach((reportItem: ReportItem) => {
+				if (reportItem.value > 0) {
+					this.displayReport = true;
+					return;
+				}
+			});
+		} else {
+			this.displayReport = false;
+		}
 	}
 }

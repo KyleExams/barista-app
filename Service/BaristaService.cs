@@ -157,5 +157,32 @@ namespace BaristaSample
 
 			return reportItems;
 		}
+
+		public IEnumerable<ReportItem> GetDrinksOrderedReportData(int pantryId)
+		{
+			var pantry = GetPantry(pantryId);
+			var pantryOrders = orders.Where(o => o.PantryId == pantry.Id);
+			var reportItems = new ReportItem[]
+			{
+				new ReportItem
+				{
+					Name = "Double Americano",
+					Value = pantryOrders.Count(o => o.CoffeeType == CoffeeType.DoubleAmericano)
+				},
+				new ReportItem
+				{
+					Name = "Sweet Latte",
+					Value = pantryOrders.Count(o => o.CoffeeType == CoffeeType.SweetLatte)
+				},
+				new ReportItem
+				{
+					Name = "Flat White",
+					Value = pantryOrders.Count(o => o.CoffeeType == CoffeeType.FlatWhite)
+				}
+			};
+
+			return reportItems;
+		}
+
 	}
 }

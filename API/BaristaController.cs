@@ -93,6 +93,15 @@ namespace BaristaSample
 
 			return Ok(result);
 		}
+
+		[Route("getdrinksordered/{pantryId}")]
+		[HttpGet]
+		public IActionResult GetDrinksOrderedReportData(int pantryId)
+		{
+			var result = _baristaService.GetDrinksOrderedReportData(pantryId);
+
+			return Ok(result);
+		}
 	}
 }
 

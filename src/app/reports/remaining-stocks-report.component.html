@@ -1,16 +1,16 @@
 <a class="btn btn-primary btn-xl js-scroll-trigger" (click)="ShowRemainingStocksModal()">View Remaining Stocks</a>
 
-<ngx-smart-modal #remainingStocksModal identifier="remainingStocksModal" [customClass]="'remaining-stocks-modal'">
+<ngx-smart-modal #remainingStocksModal identifier="remainingStocksModal" [customClass]="'reports-modal'">
 	<div>
 		<div class="modal-header">
 			<h2>Remaining Stocks</h2>
 		</div>
-		<div id="divChart">
+		<div id="reportDivChart">
 			<div *ngIf="!dataHasLoaded" class="div-loading">
 				<i class="fas fa-spinner plain-icon i-loading"></i>
 			</div>
 			<ngx-charts-bar-horizontal-2d *ngIf="dataHasLoaded"
-										  class="chart-container chart-custom"
+										  class="chart-container report-chart-custom"
 										  [scheme]="colorScheme"
 										  [schemeType]="schemeType"
 										  [results]="data"
